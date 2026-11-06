@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeachTrack | Teacher Management</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<section id="loginSection" class="login-container">
+    <div class="login-card">
+        <div class="login-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h1>TeachTrack</h1>
+        <p class="login-subtitle">Teacher Management System</p>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail" placeholder="admin@teachtrack.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" id="loginButton" class="primary-button">Login to Dashboard</button>
+            <p id="loginError" class="error-message"></p>
+        </form>
+    </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboardSection" hidden>
+    <div class="app-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div>
+                    <h2>TeachTrack</h2>
+                    <span>Education Management</span>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <p class="menu-label">MAIN MENU</p>
+
+                <a href="#dashboardSection" class="sidebar-link active">
+                    <i class="fa-solid fa-chart-pie"></i><span>Dashboard</span>
+                </a>
+                <a href="#teacherDirectory" class="sidebar-link">
+                    <i class="fa-solid fa-users"></i><span>Teachers</span>
+                </a>
+                <!-- Attendance -->
+                <a href="#attendancePage"
+                    class="sidebar-link"
+                    id="attendanceNavLink">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Attendance</span>
+                </a>
+
+                <!-- Reports -->
+                <a href="#reportsPage"
+                    class="sidebar-link"
+                    id="reportsNavLink">
+
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
+
+                <p class="menu-label">PREFERENCES</p>
+
+                <a href="#settingsPage" class="sidebar-link" id="settingsNavLink">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-promo">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <strong>Grow Better Education</strong>
+                </div>
+
+                <div class="sidebar-help">
+                    <i class="fa-solid fa-circle-question"></i>
+
+                <div>
+                    <strong>Need help?</strong>
+
+                    <a href="#footer" class="contact-admin-link">
+                         Contact your administrator
+                    </a>
+                </div>
+            </div>
+                <button id="logoutButton" class="sidebar-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <div class="topbar-heading">
+                   <p class="breadcrumb" id="pageBreadcrumb">Pages / Dashboard</p>
+                   <h1 id="pageTitle">Dashboard Overview</h1>
+                </div>
+
+                <div class="topbar-actions">
+                    <div class="global-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="globalSearch" placeholder="Search anything...">
+                        <kbd>Enter</kbd>
+                    </div>
+
+                    <button type="button" id="navbarDashboardButton" class="topbar-date">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>Dashboard</span>
+                    </button>
+
+                    <div class="notification-wrap">
+                        <button type="button" id="notificationButton" class="icon-button"
+                                aria-label="Notifications">
+                            <i class="fa-regular fa-bell"></i>
+                            <span id="notificationDot" class="notification-dot" hidden></span>
+                        </button>
+
+                        <div id="notificationPanel" class="notification-panel" hidden>
+                            <h4>Notifications</h4>
+                            <ul id="notificationList"></ul>
+                        </div>
+                    </div>
+
+                    <div class="user-profile">
+                        <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="user-info">
+                            <strong id="loggedInUser">TeachTrack Admin</strong>
+                            <span>Administrator</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- DASHBOARD BODY -->
+            <div class="dashboard-container">
+
+                <!-- WELCOME -->
+                <div class="welcome-section">
+                    <div>
+                        <h2>Welcome back, Admin! 👋</h2>
+                        <p>Here's what's happening with your teachers today.</p>
+                    </div>
+
+                    <button id="addTeacherButton" class="primary-button">
+                        <i class="fa-solid fa-plus"></i> Add New Teacher
+                    </button>
+                </div>
+
+                <!-- STATISTICS -->
+                <section class="stats-container">
+
+                    <div class="stat-card stat-blue">
+                        <div class="stat-card-top">
+                            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                            <span class="stat-label">Total Teachers</span>
+                        </div>
+                        <h3 id="totalTeachers">0</h3>
+                        <p>Registered teachers</p>
+                    </div>
+
+                    <div class="stat-card stat-green">
+                        <div class="stat-card-top">
+                            <div class="stat-icon"><i class="fa-solid fa-user-check"></i></div>
+                            <span class="stat-label">Active Teachers</span>
+                            <span class="stat-trend" id="activePercent">0%</span>
+                        </div>
+                        <h3 id="activeTeachers">0</h3>
+                        <p>Currently active</p>
+                    </div>
+
+                    <div class="stat-card stat-purple">
+                        <div class="stat-card-top">
+                            <div class="stat-icon"><i class="fa-solid fa-book-open"></i></div>
+                            <span class="stat-label">Subjects</span>
+                        </div>
+                        <h3 id="totalSubjects">0</h3>
+                        <p>Unique subjects</p>
+                    </div>
+
+                    <div class="stat-card stat-orange">
+                        <div class="stat-card-top">
+                            <div class="stat-icon"><i class="fa-solid fa-wallet"></i></div>
+                            <span class="stat-label">Total Salary</span>
+                        </div>
+                        <h3 id="totalSalary">₹0</h3>
+                        <p>Monthly salary expense</p>
+                    </div>
+
+                </section>
+
+                <!-- ANALYTICS -->
+                <div class="analytics-grid">
+
+                    <!-- SUBJECT CHART -->
+                    <section class="chart-section analytics-card">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <span class="chart-icon"><i class="fa-solid fa-chart-column"></i></span>
+                                <div>
+                                    <h2>Teacher Distribution</h2>
+                                    <p>Explore how teachers are distributed across subjects.</p>
+                                </div>
+                            </div>
+                            <span class="chart-badge">
+                                <i class="fa-solid fa-chart-pie"></i> Subject Analytics
+                            </span>
+                        </div>
+
+                        <div class="distribution-body">
+                            <div class="chart-container">
+                                <canvas id="subjectChart"></canvas>
+                                <div class="doughnut-center" id="subjectCenter">
+                                    <strong id="subjectCenterCount">0</strong>
+                                    <span>Registered<br>Teachers</span>
+                                </div>
+                            </div>
+                            <ul id="subjectLegend" class="subject-legend"></ul>
+                        </div>
+
+                        <div id="subjectEmpty" class="chart-empty" hidden>
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <p>No subject data yet</p>
+                        </div>
+                    </section>
+
+                    <!-- SALARY CHART -->
+                    <section class="chart-section analytics-card salary-chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <span class="chart-icon"><i class="fa-solid fa-database"></i></span>
+                                <div class="salary-chart-title">
+                                    <h2>Monthly Salary Overview</h2>
+
+                                        <p id="salaryTrendSummary">
+                                             Salary trend for the last 6 months.
+                                        </p>
+                                </div>
+                            </div>
+                            <div class="salary-chart-actions">
+
+                             <select id="salaryPeriodFilter" class="salary-period-filter">
+                                <option value="3">Last 3 Months</option>
+                                <option value="6" selected>Last 6 Months</option>
+                                <option value="12">Last 12 Months</option>
+                             </select>
+
+                                <span class="chart-badge">
+                                    <i class="fa-solid fa-wallet"></i> Salary Analytics
+                                </span>
+
+                            </div>
+                        </div>
+
+                        <div class="salary-chart-container">
+                            <canvas id="salaryChart"></canvas>
+                        </div>
+
+                        <div id="salaryEmpty" class="chart-empty" hidden>
+                            <i class="fa-solid fa-wallet"></i>
+                            <p>No salary data yet</p>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- TEACHER DIRECTORY -->
+                <section id="teacherDirectory" class="table-section">
+
+                    <div class="table-header">
+                        <div class="chart-title">
+                            <span class="chart-icon"><i class="fa-solid fa-users"></i></span>
+                            <div>
+                                <h2>Teacher Directory</h2>
+                                <p>Manage and monitor your teaching staff.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEARCH AND FILTER -->
+                    <div class="filters">
+
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="searchInput" placeholder="Search teachers...">
+                        </div>
+
+                        <select id="subjectFilter">
+                            <option value="">All Subjects</option>
+                        </select>
+
+                        <select id="sortFilter">
+                            <option value="name-asc">Name: A–Z</option>
+                            <option value="name-desc">Name: Z–A</option>
+                            <option value="salary-asc">Salary: Low to High</option>
+                            <option value="salary-desc">Salary: High to Low</option>
+                            <option value="date-desc">Joining Date: Newest</option>
+                            <option value="date-asc">Joining Date: Oldest</option>
+                        </select>
+
+                        <div class="view-toggle">
+                            <button type="button" id="viewListBtn" class="active" aria-label="List view">
+                                <i class="fa-solid fa-list"></i>
+                            </button>
+                            <button type="button" id="viewGridBtn" aria-label="Grid view">
+                                <i class="fa-solid fa-table-cells-large"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!-- TEACHER TABLE -->
+                    <div class="table-wrapper" id="tableWrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Teacher</th>
+                                    <th>Subject</th>
+                                    <th>Qualification</th>
+                                    <th>Salary</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="teacherTableBody"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- TEACHER GRID -->
+                    <div id="teacherGrid" class="teacher-grid" hidden></div>
+
+                    <div id="pagination" class="pagination"></div>
+
+                </section>
+
+              
+<!-- FOOTER -->
+<footer id="footer" class="dashboard-footer">
+
+    <div class="footer-content">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+            <h3>
+                <i class="fa-solid fa-graduation-cap"></i>
+                TeachTrack
+            </h3>
+
+            <p>
+                Teacher Management System
+            </p>
+
+            <p class="footer-tagline">
+                Made with <i class="fa-solid fa-heart"></i> for education
+            </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-contact">
+            <h4>Contact Administrator</h4>
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:admin@teachtrack.com">
+                    admin@teachtrack.com
+                </a>
+            </p>
+
+            <p>
+                <i class="fa-solid fa-circle-question"></i>
+                Need assistance? Contact our support team.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+
+            <a href="#" data-page="dashboard">Dashboard</a>
+            <a href="#" data-page="teachers">Teachers</a>
+            <a href="#" data-page="attendance">Attendance</a>
+            <a href="#" data-page="reports">Reports</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 TeachTrack. All rights reserved.</p>
+        <p>Version 1.0.0</p>
+    </div>
+
+</footer>
+
+
+            </div>
+                        <!-- SETTINGS PAGE -->
+            <section id="settingsPage" class="settings-page" hidden>
+
+                <div class="settings-welcome">
+                    <div>
+                        <h2>Settings</h2>
+                        <p>Manage your profile and application preferences.</p>
+                    </div>
+                </div>
+
+                <!-- PROFILE SETTINGS -->
+                <section class="settings-card">
+                    <div class="settings-card-heading">
+                        <i class="fa-solid fa-user"></i>
+                        <div>
+                            <h3>Profile Settings</h3>
+                            <p>Update your administrator profile.</p>
+                        </div>
+                    </div>
+
+                    <form id="profileSettingsForm" class="settings-form">
+                        <div class="form-group">
+                            <label for="settingsFullName">Full Name</label>
+                            <input type="text" id="settingsFullName"
+                                   value="TeachTrack Admin" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="settingsEmail">Email Address</label>
+                            <input type="email" id="settingsEmail"
+                                   value="admin@teachtrack.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="settingsPhone">Phone Number</label>
+                            <input type="tel" id="settingsPhone"
+                                   placeholder="Enter phone number">
+                        </div>
+                
+                        <div class="profile-actions">
+                            <button type="submit" id="saveProfileBtn" class="primary-button">
+                             Save Profile
+                            </button>
+
+                            <button type="button" id="editProfileBtn" class="edit-profile-btn" hidden>
+                             Edit Profile
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- APPEARANCE SETTINGS -->
+                <section class="settings-card">
+                    <div class="settings-card-heading">
+                        <i class="fa-solid fa-palette"></i>
+                        <div>
+                            <h3>Appearance</h3>
+                            <p>Customize the dashboard appearance.</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-control">
+                        <label for="themeSelect">Theme</label>
+                        <select id="themeSelect">
+                            <option value="light">Light Mode</option>
+                            <option value="dark">Dark Mode</option>
+                        </select>
+                    </div>
+
+                    <div class="settings-control">
+                        <label for="fontSizeSelect">Font Size</label>
+                        <select id="fontSizeSelect">
+                            <option value="small">Small</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- NOTIFICATION SETTINGS -->
+                <section class="settings-card">
+                    <div class="settings-card-heading">
+                        <i class="fa-solid fa-bell"></i>
+                        <div>
+                            <h3>Notifications</h3>
+                            <p>Choose which notifications you want to enable.</p>
+                        </div>
+                    </div>
+
+                    <label class="settings-toggle">
+                        <span>Email Notifications</span>
+                        <input type="checkbox" id="emailNotifications" checked>
+                    </label>
+
+                    <label class="settings-toggle">
+                        <span>Teacher Updates</span>
+                        <input type="checkbox" id="teacherNotifications" checked>
+                    </label>
+
+                    <label class="settings-toggle">
+                        <span>System Alerts</span>
+                        <input type="checkbox" id="systemNotifications" checked>
+                    </label>
+                </section>
+
+               <!-- SECURITY SETTINGS -->
+<section class="settings-card">
+    <div class="settings-card-heading">
+        <i class="fa-solid fa-shield-halved"></i>
+        <div>
+            <h3>Security</h3>
+            <p>Update your administrator password securely.</p>
+        </div>
+    </div>
+
+    <form id="passwordSettingsForm">
+    <div class="form-group">
+        <label for="currentSettingsPassword">Current Password</label>
+        <input
+            type="password"
+            id="currentSettingsPassword"
+            autocomplete="current-password"
+            required
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="newSettingsPassword">New Password</label>
+        <input
+            type="password"
+            id="newSettingsPassword"
+            minlength="8"
+            autocomplete="new-password"
+            required
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="confirmSettingsPassword">Confirm New Password</label>
+        <input
+            type="password"
+            id="confirmSettingsPassword"
+            minlength="8"
+            autocomplete="new-password"
+            required
+        >
+    </div>
+
+    <button type="submit" id="updatePasswordBtn">
+        Update Password
+    </button>
+</form>
+</section>
+
+                <!-- PREFERENCES -->
+                <section class="settings-card">
+                    <div class="settings-card-heading">
+                        <i class="fa-solid fa-sliders"></i>
+                        <div>
+                            <h3>Preferences</h3>
+                            <p>Configure your preferred language and date format.</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-control">
+                        <label for="languageSelect">Language</label>
+                        <select id="languageSelect">
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+
+                    <div class="settings-control">
+                        <label for="dateFormatSelect">Date Format</label>
+                        <select id="dateFormatSelect">
+                            <option value="DD-MM-YYYY">DD-MM-YYYY</option>
+                            <option value="MM-DD-YYYY">MM-DD-YYYY</option>
+                            <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- ABOUT -->
+                <section class="settings-card">
+                    <div class="settings-card-heading">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <div>
+                            <h3>About TeachTrack</h3>
+                            <p>Teacher Management System</p>
+                        </div>
+                    </div>
+
+                    <p><strong>Version:</strong> 1.0.0</p>
+                    <p>TeachTrack helps administrators manage teacher information.</p>
+                </section>
+
+            </section>
+            <!-- =========================================
+     ATTENDANCE PAGE
+========================================= -->
+
+<section id="attendancePage" hidden>
+
+    <!-- Page Header -->
+    <div class="page-heading">
+        <div>
+            <h2>Attendance Management</h2>
+            <p>Track and manage daily teacher attendance.</p>
+        </div>
+
+        <div class="attendance-date-control">
+            <label for="attendanceDate">Attendance Date</label>
+            <input type="date" id="attendanceDate">
+        </div>
+    </div>
+
+    <!-- Attendance Summary -->
+    <div class="attendance-summary">
+
+        <div class="attendance-stat">
+            <span>Total Teachers</span>
+            <h3 id="attendanceTotal">0</h3>
+        </div>
+
+        <div class="attendance-stat present-stat">
+            <span>Present</span>
+            <h3 id="attendancePresent">0</h3>
+        </div>
+
+        <div class="attendance-stat absent-stat">
+            <span>Absent</span>
+            <h3 id="attendanceAbsent">0</h3>
+        </div>
+
+        <div class="attendance-stat leave-stat">
+            <span>On Leave</span>
+            <h3 id="attendanceLeave">0</h3>
+        </div>
+
+    </div>
+
+    <!-- Attendance Table -->
+    <div class="attendance-card">
+
+        <div class="attendance-card-header">
+            <div>
+                <h3>Teacher Attendance</h3>
+                <p>Mark attendance for each teacher.</p>
+            </div>
+
+            <button
+                type="button"
+                class="primary-button"
+                id="saveAttendanceBtn">
+
+                <i class="fa-solid fa-check"></i>
+                Save Attendance
+
+            </button>
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Teacher Name</th>
+                        <th>Subject</th>
+                        <th>Attendance Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="attendanceTableBody">
+                    <!-- Attendance rows generated using JavaScript -->
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     REPORTS PAGE
+========================================= -->
+
+<section id="reportsPage" hidden>
+
+    <!-- Page Header -->
+    <div class="page-heading">
+        <div>
+            <h2>Reports & Analytics</h2>
+            <p>Review teacher and attendance statistics.</p>
+        </div>
+
+        <button
+            type="button"
+            class="primary-button"
+            id="exportReportBtn">
+
+            <i class="fa-solid fa-file-excel"></i>
+            Export Excel
+        </button>
+    </div>
+
+    <!-- Reports Summary -->
+    <div class="reports-summary">
+
+        <div class="report-stat">
+            <div class="report-stat-icon">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <p>Total Teachers</p>
+            <h3 id="reportTotalTeachers">0</h3>
+        </div>
+
+        <div class="report-stat">
+            <div class="report-stat-icon green">
+                <i class="fa-solid fa-user-check"></i>
+            </div>
+
+            <p>Active Teachers</p>
+            <h3 id="reportActiveTeachers">0</h3>
+        </div>
+
+        <div class="report-stat">
+            <div class="report-stat-icon purple">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+
+            <p>Present</p>
+            <h3 id="reportPresentToday">0</h3>
+        </div>
+
+        <div class="report-stat">
+            <div class="report-stat-icon orange">
+                <i class="fa-solid fa-user-xmark"></i>
+            </div>
+
+            <p>Absent</p>
+            <h3 id="reportAbsentToday">0</h3>
+        </div>
+
+    </div>
+
+    <!-- Attendance Report -->
+    <div class="report-card">
+
+        <div class="report-card-header">
+            <div>
+                <h3>Attendance Report</h3>
+                <p>View attendance records by date.</p>
+            </div>
+
+            <div>
+                <label for="reportDate">Select Date</label>
+                <input type="date" id="reportDate">
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Teacher Name</th>
+                        <th>Subject</th>
+                        <th>Date</th>
+                        <th>Attendance Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="reportTableBody">
+                    <!-- Report rows generated using JavaScript -->
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+    </div>
+</section>
+
+<!-- ADD / EDIT TEACHER MODAL -->
+<div id="teacherModal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <div>
+                <h2 id="modalTitle">Add Teacher</h2>
+                <p>Enter teacher information below.</p>
+            </div>
+
+            <button type="button" id="closeModalBtn" class="close-modal-btn" aria-label="Close">
+                &times;
+            </button>
+        </div>
+
+        <form id="teacherForm">
+
+            <input type="hidden" id="teacherId">
+
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                    title="Enter a valid email, such as user@gmail.com">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" required>
+            </div>
+
+            <div class="form-group">
+                <label for="qualification">Qualification</label>
+                <input type="text" id="qualification" required>
+            </div>
+
+            <div class="form-group">
+                <label for="salary">Salary</label>
+                <input type="number" id="salary" min="0" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="joiningDate">Joining Date</label>
+                <input type="date" id="joiningDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="active">Status</label>
+                <select id="active" required>
+                    <option value="true">Active</option>
+                    <option value="false">Inactive</option>
+                </select>
+            </div>
+
+            <div class="modal-actions">
+                <button type="submit" id="saveBtn" class="primary-button">Save Teacher</button>
+                <button type="button" id="cancelTeacherButton" class="secondary-button">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast hidden"></div>
+
+<!-- CHART.JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- EXCEL EXPORT LIBRARY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<!-- APPLICATION JS -->
+<script src="app.js"></script>
+
+</body>
+</html>
