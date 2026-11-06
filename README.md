@@ -13,7 +13,7 @@ TeachTrack helps administrators efficiently manage teaching staff through a mode
 Secure administrator login with JWT-based authentication.
 
 <p align="center">
-  <img src="./TeachTrack-Frontend/Screenshots/Login%20(2).png" width="850" alt="TeachTrack Login"/>
+  <img src="./TeachTrack-Frontend/Screenshots/Login%20%282%29.png" width="850" alt="TeachTrack Login"/>
 </p>
 
 ---
@@ -24,8 +24,8 @@ The dashboard provides an overview of teacher-related information, including tot
 
 <table>
   <tr>
-    <th align="center">🌙 Dashboard</th>
-    <th align="center">☀️ Dark Dashboard</th>
+    <th align="center">📊 Dashboard</th>
+    <th align="center">🌙 Dark Dashboard</th>
   </tr>
   <tr>
     <td align="center">
@@ -69,7 +69,7 @@ Manage teaching staff using card-based or table-based layouts.
 
 ### ➕ Add Teacher
 
-Add new teacher records through a form containing teacher information such as name, email, phone, subject, qualification, and salary.
+Add new teacher records through a form containing name, email, phone, subject, qualification, and salary.
 
 <p align="center">
   <img src="./TeachTrack-Frontend/Screenshots/Add%20teacher.png" width="850" alt="Add Teacher"/>
@@ -87,9 +87,20 @@ Manage and track daily teacher attendance.
 - Save attendance records
 - View attendance information
 
-<p align="center">
-  <img src="./TeachTrack-Frontend/Screenshots/Attendance.png" width="850" alt="Attendance Management"/>
-</p>
+<table>
+  <tr>
+    <th align="center">Attendance</th>
+    <th align="center">Attendance Management</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./TeachTrack-Frontend/Screenshots/Attendance.png" width="500" alt="Attendance"/>
+    </td>
+    <td align="center">
+      <img src="./TeachTrack-Frontend/Screenshots/Attendance%20management.png" width="500" alt="Attendance Management"/>
+    </td>
+  </tr>
+</table>
 
 ---
 
