@@ -13,7 +13,7 @@ TeachTrack helps administrators efficiently manage teaching staff through a mode
 Secure administrator login with JWT-based authentication.
 
 <p align="center">
-  <img src="./TeachTrack-Frontend/Screenshots/login.png" width="850" alt="TeachTrack Login"/>
+  <img src="./TeachTrack-Frontend/Screenshots/Login%20(2).png" width="850" alt="TeachTrack Login"/>
 </p>
 
 ---
@@ -24,15 +24,15 @@ The dashboard provides an overview of teacher-related information, including tot
 
 <table>
   <tr>
-    <th align="center">🌙 Dark Mode</th>
-    <th align="center">☀️ Light Mode</th>
+    <th align="center">🌙 Dashboard</th>
+    <th align="center">☀️ Dark Dashboard</th>
   </tr>
   <tr>
     <td align="center">
-      <img src="./TeachTrack-Frontend/Screenshots/dashboard-dark.png" width="500" alt="Dashboard Dark Mode"/>
+      <img src="./TeachTrack-Frontend/Screenshots/TeachTrackDashboard.png" width="500" alt="TeachTrack Dashboard"/>
     </td>
     <td align="center">
-      <img src="./TeachTrack-Frontend/Screenshots/dashboard-light.png" width="500" alt="Dashboard Light Mode"/>
+      <img src="./TeachTrack-Frontend/Screenshots/Dark%20Dashboard.png" width="500" alt="TeachTrack Dark Dashboard"/>
     </td>
   </tr>
 </table>
@@ -44,7 +44,7 @@ The dashboard provides an overview of teacher-related information, including tot
 Manage teaching staff using card-based or table-based layouts.
 
 - Search teachers
-- Filter by subject
+- Filter teachers by subject
 - Sort teacher records
 - Switch between grid and table views
 - Edit and delete teacher information
@@ -52,15 +52,15 @@ Manage teaching staff using card-based or table-based layouts.
 
 <table>
   <tr>
-    <th align="center">Grid View</th>
-    <th align="center">Table View</th>
+    <th align="center">Teacher Directory</th>
+    <th align="center">Teacher Directory – Alternative View</th>
   </tr>
   <tr>
     <td align="center">
-      <img src="./TeachTrack-Frontend/Screenshots/teacher-directory-grid.png" width="500" alt="Teacher Directory Grid"/>
+      <img src="./TeachTrack-Frontend/Screenshots/TeachDirectory.png" width="500" alt="Teacher Directory"/>
     </td>
     <td align="center">
-      <img src="./TeachTrack-Frontend/Screenshots/teacher-directory-table.png" width="500" alt="Teacher Directory Table"/>
+      <img src="./TeachTrack-Frontend/Screenshots/Teach%20Directory1.png" width="500" alt="Teacher Directory Alternative View"/>
     </td>
   </tr>
 </table>
@@ -72,7 +72,7 @@ Manage teaching staff using card-based or table-based layouts.
 Add new teacher records through a form containing teacher information such as name, email, phone, subject, qualification, and salary.
 
 <p align="center">
-  <img src="./TeachTrack-Frontend/Screenshots/add-teacher.png" width="850" alt="Add Teacher"/>
+  <img src="./TeachTrack-Frontend/Screenshots/Add%20teacher.png" width="850" alt="Add Teacher"/>
 </p>
 
 ---
@@ -88,7 +88,7 @@ Manage and track daily teacher attendance.
 - View attendance information
 
 <p align="center">
-  <img src="./TeachTrack-Frontend/Screenshots/attendance.png" width="850" alt="Attendance Management"/>
+  <img src="./TeachTrack-Frontend/Screenshots/Attendance.png" width="850" alt="Attendance Management"/>
 </p>
 
 ---
@@ -104,7 +104,7 @@ Review teacher and attendance statistics through the reports dashboard.
 - Export reports to Excel
 
 <p align="center">
-  <img src="./TeachTrack-Frontend/Screenshots/reports.png" width="850" alt="Reports and Analytics"/>
+  <img src="./TeachTrack-Frontend/Screenshots/Report.png" width="850" alt="Reports and Analytics"/>
 </p>
 
 ---
@@ -120,7 +120,7 @@ Manage administrator profile and application preferences.
 - Notification preferences
 
 <p align="center">
-  <img src="./TeachTrack-Frontend/Screenshots/settings.png" width="850" alt="TeachTrack Settings"/>
+  <img src="./TeachTrack-Frontend/Screenshots/Settings.png" width="850" alt="TeachTrack Settings"/>
 </p>
 
 ---
@@ -129,7 +129,7 @@ Manage administrator profile and application preferences.
 
 ### 🔐 Authentication and Security
 
-- Admin login and authentication using JWT
+- Admin login using JWT authentication
 - Password hashing using BCrypt
 - Protected API endpoints
 - Role-based authorization
@@ -257,7 +257,7 @@ Frontend (HTML, CSS, JavaScript)
       Repository Layer
              |
              v
-        MySQL Database
+       MySQL Database
 ```
 
 The frontend communicates with the Spring Boot backend through REST APIs using the Fetch API. Teacher information is persisted in MySQL using Spring Data JPA and Hibernate.
