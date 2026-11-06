@@ -13,7 +13,7 @@ TeachTrack helps administrators efficiently manage teaching staff through a mode
 Secure administrator login with JWT-based authentication.
 
 <p align="center">
-  <img src="screenshots/login.png" width="850" alt="TeachTrack Login"/>
+  <img src="TeachTrack-Frontend/Screenshots/login.png" width="850" alt="TeachTrack Login"/>
 </p>
 
 ---
@@ -29,10 +29,10 @@ The dashboard provides an overview of teacher-related information, including tot
   </tr>
   <tr>
     <td align="center">
-      <img src="screenshots/dashboard-dark.png" width="500" alt="Dashboard Dark Mode"/>
+      <img src="TeachTrack-Frontend/Screenshots/dashboard-dark.png" width="500" alt="Dashboard Dark Mode"/>
     </td>
     <td align="center">
-      <img src="screenshots/dashboard-light.png" width="500" alt="Dashboard Light Mode"/>
+      <img src="TeachTrack-Frontend/Screenshots/dashboard-light.png" width="500" alt="Dashboard Light Mode"/>
     </td>
   </tr>
 </table>
@@ -57,10 +57,10 @@ Manage teaching staff using card-based or table-based layouts.
   </tr>
   <tr>
     <td align="center">
-      <img src="screenshots/teacher-directory-grid.png" width="500" alt="Teacher Directory Grid"/>
+      <img src="TeachTrack-Frontend/Screenshots/teacher-directory-grid.png" width="500" alt="Teacher Directory Grid"/>
     </td>
     <td align="center">
-      <img src="screenshots/teacher-directory-table.png" width="500" alt="Teacher Directory Table"/>
+      <img src="TeachTrack-Frontend/Screenshots/teacher-directory-table.png" width="500" alt="Teacher Directory Table"/>
     </td>
   </tr>
 </table>
@@ -72,7 +72,7 @@ Manage teaching staff using card-based or table-based layouts.
 Add new teacher records through a form containing teacher information such as name, email, phone, subject, qualification, and salary.
 
 <p align="center">
-  <img src="screenshots/add-teacher.png" width="850" alt="Add Teacher"/>
+  <img src="TeachTrack-Frontend/Screenshots/add-teacher.png" width="850" alt="Add Teacher"/>
 </p>
 
 ---
@@ -88,7 +88,7 @@ Manage and track daily teacher attendance.
 - View attendance information
 
 <p align="center">
-  <img src="screenshots/attendance.png" width="850" alt="Attendance Management"/>
+  <img src="TeachTrack-Frontend/Screenshots/attendance.png" width="850" alt="Attendance Management"/>
 </p>
 
 ---
@@ -104,7 +104,7 @@ Review teacher and attendance statistics through the reports dashboard.
 - Export reports to Excel
 
 <p align="center">
-  <img src="screenshots/reports.png" width="850" alt="Reports and Analytics"/>
+  <img src="TeachTrack-Frontend/Screenshots/reports.png" width="850" alt="Reports and Analytics"/>
 </p>
 
 ---
@@ -120,7 +120,7 @@ Manage administrator profile and application preferences.
 - Notification preferences
 
 <p align="center">
-  <img src="screenshots/settings.png" width="850" alt="TeachTrack Settings"/>
+  <img src="TeachTrack-Frontend/Screenshots/settings.png" width="850" alt="TeachTrack Settings"/>
 </p>
 
 ---
@@ -222,21 +222,21 @@ Manage administrator profile and application preferences.
 TeachTrack
 │
 ├── Backend
-│   ├── Spring Boot
-│   ├── REST Controllers
-│   ├── Service Layer
-│   ├── Repository Layer
-│   ├── Spring Security
-│   ├── JWT Authentication
-│   └── Spring Data JPA
+│   ├── Spring Boot
+│   ├── REST Controllers
+│   ├── Service Layer
+│   ├── Repository Layer
+│   ├── Spring Security
+│   ├── JWT Authentication
+│   └── Spring Data JPA
 │
 ├── Frontend
-│   ├── HTML5
-│   ├── CSS3
-│   └── JavaScript
+│   ├── HTML5
+│   ├── CSS3
+│   └── JavaScript
 │
 └── Database
-    └── MySQL
+    └── MySQL
 ```
 
 ### Architecture Flow
@@ -305,16 +305,16 @@ Install the following tools:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/TeachTrack.git
+   git clone https://github.com/Sunilgowda2003/TeachTrack.git
    ```
 
-2. Open the backend project in Spring Tool Suite.
+2. Open the `backend` folder in Spring Tool Suite.
 3. Configure Java 21.
 4. Create the MySQL database.
 5. Configure MySQL credentials in `application.properties`.
 6. Configure the required JWT secret.
 7. Update Maven dependencies if necessary.
-8. Run the Spring Boot application.
+8. Run `TeachtrackApplication.java` as a Spring Boot application.
 
 **Backend URL:**
 
@@ -330,9 +330,9 @@ http://localhost:8080/api
 
 ### Frontend Setup
 
-1. Open the frontend folder in Visual Studio Code.
+1. Open the `TeachTrack-Frontend` folder in Visual Studio Code.
 2. Ensure the Spring Boot backend is running.
-3. Open the frontend using Live Server.
+3. Open `index.html` using the Live Server extension.
 
 **Frontend URL:**
 
