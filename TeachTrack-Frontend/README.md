@@ -13,7 +13,7 @@ TeachTrack helps administrators efficiently manage teaching staff through a mode
 Secure administrator login with JWT-based authentication.
 
 <p align="center">
-  <img src="screenshots/login.png" width="850" alt="TeachTrack Login"/>
+  <img src="./Screenshots/Login%20%282%29.png" width="850" alt="TeachTrack Login"/>
 </p>
 
 ---
@@ -22,20 +22,15 @@ Secure administrator login with JWT-based authentication.
 
 The dashboard provides an overview of teacher-related information, including total teachers, active teachers, subjects, salary statistics, teacher distribution, and monthly salary analytics.
 
-<table>
-  <tr>
-    <th align="center">🌙 Dark Mode</th>
-    <th align="center">☀️ Light Mode</th>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="screenshots/dashboard-dark.png" width="500" alt="Dashboard Dark Mode"/>
-    </td>
-    <td align="center">
-      <img src="screenshots/dashboard-light.png" width="500" alt="Dashboard Light Mode"/>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="./Screenshots/TeachTrackDashboard.png" width="850" alt="TeachTrack Dashboard"/>
+</p>
+
+### 🌙 Dark Dashboard
+
+<p align="center">
+  <img src="./Screenshots/Dark%20Dashboard.png" width="850" alt="TeachTrack Dark Dashboard"/>
+</p>
 
 ---
 
@@ -52,15 +47,15 @@ Manage teaching staff using card-based or table-based layouts.
 
 <table>
   <tr>
-    <th align="center">Grid View</th>
-    <th align="center">Table View</th>
+    <th align="center">Teacher Directory</th>
+    <th align="center">Alternative View</th>
   </tr>
   <tr>
     <td align="center">
-      <img src="screenshots/teacher-directory-grid.png" width="500" alt="Teacher Directory Grid"/>
+      <img src="./Screenshots/TeachDirectory.png" width="500" alt="Teacher Directory"/>
     </td>
     <td align="center">
-      <img src="screenshots/teacher-directory-table.png" width="500" alt="Teacher Directory Table"/>
+      <img src="./Screenshots/Teach%20Directory1.png" width="500" alt="Teacher Directory Alternative View"/>
     </td>
   </tr>
 </table>
@@ -69,10 +64,10 @@ Manage teaching staff using card-based or table-based layouts.
 
 ### ➕ Add Teacher
 
-Add new teacher records through a form containing teacher information such as name, email, phone, subject, qualification, and salary.
+Add new teacher records through a form containing name, email, phone, subject, qualification, and salary.
 
 <p align="center">
-  <img src="screenshots/add-teacher.png" width="850" alt="Add Teacher"/>
+  <img src="./Screenshots/Add%20teacher.png" width="850" alt="Add Teacher"/>
 </p>
 
 ---
@@ -88,7 +83,13 @@ Manage and track daily teacher attendance.
 - View attendance information
 
 <p align="center">
-  <img src="screenshots/attendance.png" width="850" alt="Attendance Management"/>
+  <img src="./Screenshots/Attendance.png" width="850" alt="Attendance Management"/>
+</p>
+
+### Attendance Management – Additional View
+
+<p align="center">
+  <img src="./Screenshots/Attendance%20management.png" width="850" alt="Attendance Management Additional View"/>
 </p>
 
 ---
@@ -104,7 +105,7 @@ Review teacher and attendance statistics through the reports dashboard.
 - Export reports to Excel
 
 <p align="center">
-  <img src="screenshots/reports.png" width="850" alt="Reports and Analytics"/>
+  <img src="./Screenshots/Report.png" width="850" alt="Reports and Analytics"/>
 </p>
 
 ---
@@ -120,7 +121,7 @@ Manage administrator profile and application preferences.
 - Notification preferences
 
 <p align="center">
-  <img src="screenshots/settings.png" width="850" alt="TeachTrack Settings"/>
+  <img src="./Screenshots/Settings.png" width="850" alt="TeachTrack Settings"/>
 </p>
 
 ---
@@ -129,7 +130,7 @@ Manage administrator profile and application preferences.
 
 ### 🔐 Authentication and Security
 
-- Admin login and authentication using JWT
+- Admin authentication using JWT
 - Password hashing using BCrypt
 - Protected API endpoints
 - Role-based authorization
@@ -222,21 +223,21 @@ Manage administrator profile and application preferences.
 TeachTrack
 │
 ├── Backend
-│   ├── Spring Boot
-│   ├── REST Controllers
-│   ├── Service Layer
-│   ├── Repository Layer
-│   ├── Spring Security
-│   ├── JWT Authentication
-│   └── Spring Data JPA
+│   ├── Spring Boot
+│   ├── REST Controllers
+│   ├── Service Layer
+│   ├── Repository Layer
+│   ├── Spring Security
+│   ├── JWT Authentication
+│   └── Spring Data JPA
 │
 ├── Frontend
-│   ├── HTML5
-│   ├── CSS3
-│   └── JavaScript
+│   ├── HTML5
+│   ├── CSS3
+│   └── JavaScript
 │
 └── Database
-    └── MySQL
+    └── MySQL
 ```
 
 ### Architecture Flow
@@ -255,7 +256,7 @@ Frontend (HTML, CSS, JavaScript)
       Repository Layer
              |
              v
-        MySQL Database
+       MySQL Database
 ```
 
 The frontend communicates with the Spring Boot backend through REST APIs using the Fetch API. Teacher information is persisted in MySQL using Spring Data JPA and Hibernate.
@@ -305,16 +306,16 @@ Install the following tools:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/TeachTrack.git
+   git clone https://github.com/Sunilgowda2003/TeachTrack.git
    ```
 
-2. Open the backend project in Spring Tool Suite.
+2. Open the `backend` folder in Spring Tool Suite.
 3. Configure Java 21.
 4. Create the MySQL database.
 5. Configure MySQL credentials in `application.properties`.
 6. Configure the required JWT secret.
 7. Update Maven dependencies if necessary.
-8. Run the Spring Boot application.
+8. Run `TeachtrackApplication.java` as a Spring Boot application.
 
 **Backend URL:**
 
@@ -330,9 +331,9 @@ http://localhost:8080/api
 
 ### Frontend Setup
 
-1. Open the frontend folder in Visual Studio Code.
+1. Open the `TeachTrack-Frontend` folder in Visual Studio Code.
 2. Ensure the Spring Boot backend is running.
-3. Open the frontend using Live Server.
+3. Open `index.html` using the Live Server extension.
 
 **Frontend URL:**
 
