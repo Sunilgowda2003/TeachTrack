@@ -22,15 +22,20 @@ Secure administrator login with JWT-based authentication.
 
 The dashboard provides an overview of teacher-related information, including total teachers, active teachers, subjects, salary statistics, teacher distribution, and monthly salary analytics.
 
-<p align="center">
-  <img src="./Screenshots/TeachTrackDashboard.png" width="850" alt="TeachTrack Dashboard"/>
-</p>
-
-### 🌙 Dark Dashboard
-
-<p align="center">
-  <img src="./Screenshots/Dark%20Dashboard.png" width="850" alt="TeachTrack Dark Dashboard"/>
-</p>
+<table>
+  <tr>
+    <th align="center">🌙 Dark Dashboard</th>
+    <th align="center">📊 Dashboard</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./Screenshots/Dark%20Dashboard.png" width="500" alt="Dark Dashboard"/>
+    </td>
+    <td align="center">
+      <img src="./Screenshots/TeachTrackDashboard.png" width="500" alt="TeachTrack Dashboard"/>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -64,8 +69,6 @@ Manage teaching staff using card-based or table-based layouts.
 
 ### ➕ Add Teacher
 
-Add new teacher records through a form containing name, email, phone, subject, qualification, and salary.
-
 <p align="center">
   <img src="./Screenshots/Add%20teacher.png" width="850" alt="Add Teacher"/>
 </p>
@@ -74,35 +77,24 @@ Add new teacher records through a form containing name, email, phone, subject, q
 
 ### 📅 Attendance Management
 
-Manage and track daily teacher attendance.
-
-- Select attendance date
-- View attendance statistics
-- Mark teachers as Present, Absent, Leave, or Not Marked
-- Save attendance records
-- View attendance information
-
-<p align="center">
-  <img src="./Screenshots/Attendance.png" width="850" alt="Attendance Management"/>
-</p>
-
-### Attendance Management – Additional View
-
-<p align="center">
-  <img src="./Screenshots/Attendance%20management.png" width="850" alt="Attendance Management Additional View"/>
-</p>
+<table>
+  <tr>
+    <th align="center">Attendance</th>
+    <th align="center">Attendance Management</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./Screenshots/Attendance.png" width="500" alt="Attendance"/>
+    </td>
+    <td align="center">
+      <img src="./Screenshots/Attendance%20management.png" width="500" alt="Attendance Management"/>
+    </td>
+  </tr>
+</table>
 
 ---
 
 ### 📈 Reports & Analytics
-
-Review teacher and attendance statistics through the reports dashboard.
-
-- Total teacher statistics
-- Active teacher statistics
-- Present and absent counts
-- Date-based attendance reports
-- Export reports to Excel
 
 <p align="center">
   <img src="./Screenshots/Report.png" width="850" alt="Reports and Analytics"/>
@@ -112,19 +104,10 @@ Review teacher and attendance statistics through the reports dashboard.
 
 ### ⚙️ Settings
 
-Manage administrator profile and application preferences.
-
-- Profile settings
-- Theme customization
-- Light and dark mode
-- Font size preferences
-- Notification preferences
-
 <p align="center">
   <img src="./Screenshots/Settings.png" width="850" alt="TeachTrack Settings"/>
 </p>
 
----
 
 ## ✨ Features
 
